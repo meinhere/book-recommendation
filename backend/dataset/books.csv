@@ -1,0 +1,501 @@
+bookId,title,genre
+101,The Great Gatsby,Fiction
+102,To Kill a Mockingbird,Fiction
+103,The Catcher in the Rye,Fiction
+104,1984,Dystopian
+105,Brave New World,Dystopian
+106,Fahrenheit 451,Dystopian
+107,The Hobbit,Fantasy
+108,Harry Potter and the Sorcerer's Stone,Fantasy
+109,The Name of the Wind,Fantasy
+110,The Fellowship of the Ring,Fantasy
+111,The Two Towers,Fantasy
+112,The Return of the King,Fantasy
+113,A Game of Thrones,Fantasy
+114,A Clash of Kings,Fantasy
+115,A Storm of Swords,Fantasy
+116,A Feast for Crows,Fantasy
+117,A Dance with Dragons,Fantasy
+118,The Winds of Winter,Fantasy
+119,The Doors of Stone,Fantasy
+120,The Way of Kings,Fantasy
+121,Words of Radiance,Fantasy
+122,Oathbringer,Fantasy
+123,Rhythm of War,Fantasy
+124,The Final Empire,Fantasy
+125,The Well of Ascension,Fantasy
+126,The Hero of Ages,Fantasy
+127,The Alloy of Law,Fantasy
+128,Shadows of Self,Fantasy
+129,Bands of Mourning,Fantasy
+130,Warbreaker,Fantasy
+131,Elantris,Fantasy
+132,The Eye of the World,Fantasy
+133,The Great Hunt,Fantasy
+134,The Dragon Reborn,Fantasy
+135,The Shadow Rising,Fantasy
+136,The Fires of Heaven,Fantasy
+137,Lord of Chaos,Fantasy
+138,A Crown of Swords,Fantasy
+139,The Path of Daggers,Fantasy
+140,Winter's Heart,Fantasy
+141,Crossroads of Twilight,Fantasy
+142,Knife of Dreams,Fantasy
+143,The Gathering Storm,Fantasy
+144,Towers of Midnight,Fantasy
+145,A Memory of Light,Fantasy
+146,The Lies of Locke Lamora,Fantasy
+147,Red Seas Under Red Skies,Fantasy
+148,The Republic of Thieves,Fantasy
+149,The Thorn of Emberlain,Fantasy
+150,The Ministry of Necessity,Fantasy
+151,The Mage and the Master Spy,Fantasy
+152,The Mad Baron's Mechanical Attic,Fantasy
+153,The Black Prism,Fantasy
+154,The Blinding Knife,Fantasy
+155,The Broken Eye,Fantasy
+156,The Blood Mirror,Fantasy
+157,The Burning White,Fantasy
+158,The Way of Shadows,Fantasy
+159,Shadow's Edge,Fantasy
+160,Beyond the Shadows,Fantasy
+161,The Night Angel Trilogy,Fantasy
+162,The Lightbringer Series,Fantasy
+163,The Kingkiller Chronicle,Fantasy
+164,The Stormlight Archive,Fantasy
+165,The Wheel of Time,Fantasy
+166,The Mistborn Trilogy,Fantasy
+167,The Gentleman Bastard Sequence,Fantasy
+168,The First Law Trilogy,Fantasy
+169,The Broken Empire Trilogy,Fantasy
+170,The Red Queen's War,Fantasy
+171,The Riyria Revelations,Fantasy
+172,The Riyria Chronicles,Fantasy
+173,The Powder Mage Trilogy,Fantasy
+174,The Gods of Blood and Powder,Fantasy
+175,The Grim Company,Fantasy
+176,The Faithful and the Fallen,Fantasy
+177,Of Blood and Bone,Fantasy
+178,The Licanius Trilogy,Fantasy
+179,The Chronicles of the Unhewn Throne,Fantasy
+180,The Song of the Shattered Sands,Fantasy
+181,The Dandelion Dynasty,Fantasy
+182,The Poppy War,Fantasy
+183,The Burning God,Fantasy
+184,The Dragon Republic,Fantasy
+185,The Rage of Dragons,Fantasy
+186,The Fires of Vengeance,Fantasy
+187,The Burning,Fantasy
+188,The Broken Earth,Fantasy
+189,The Inheritance Trilogy,Fantasy
+190,The Dreamblood Duology,Fantasy
+191,The Hundred Thousand Kingdoms,Fantasy
+192,The Broken Kingdoms,Fantasy
+193,The Kingdom of Gods,Fantasy
+194,The Killing Moon,Fantasy
+195,The Shadowed Sun,Fantasy
+196,The Fifth Season,Fantasy
+197,The Obelisk Gate,Fantasy
+198,The Stone Sky,Fantasy
+199,The City We Became,Fantasy
+200,The World We Make,Fantasy
+201,The Hunger Games,Dystopian
+202,Catching Fire,Dystopian
+203,Mockingjay,Dystopian
+204,Divergent,Dystopian
+205,Insurgent,Dystopian
+206,Allegiant,Dystopian
+207,The Maze Runner,Dystopian
+208,The Scorch Trials,Dystopian
+209,The Death Cure,Dystopian
+210,The Kill Order,Dystopian
+211,The Fever Code,Dystopian
+212,Legend,Dystopian
+213,Prodigy,Dystopian
+214,Champion,Dystopian
+215,Rebel,Dystopian
+216,Delirium,Dystopian
+217,Pandemonium,Dystopian
+218,Requiem,Dystopian
+219,Matched,Dystopian
+220,Crossed,Dystopian
+221,Reached,Dystopian
+222,The Giver,Dystopian
+223,Gathering Blue,Dystopian
+224,Messenger,Dystopian
+225,Son,Dystopian
+226,Uglies,Dystopian
+227,Pretties,Dystopian
+228,Specials,Dystopian
+229,Extras,Dystopian
+230,The Selection,Dystopian
+231,The Elite,Dystopian
+232,The One,Dystopian
+233,The Heir,Dystopian
+234,The Crown,Dystopian
+235,Red Queen,Dystopian
+236,Glass Sword,Dystopian
+237,Kings Cage,Dystopian
+238,War Storm,Dystopian
+239,The Darkest Minds,Dystopian
+240,Never Fade,Dystopian
+241,In the Afterlight,Dystopian
+242,The Hunger Games,Dystopian
+243,Catching Fire,Dystopian
+244,Mockingjay,Dystopian
+245,Divergent,Dystopian
+246,Insurgent,Dystopian
+247,Allegiant,Dystopian
+248,The Maze Runner,Dystopian
+249,The Scorch Trials,Dystopian
+250,The Death Cure,Dystopian
+251,The Kill Order,Dystopian
+252,The Fever Code,Dystopian
+253,Legend,Dystopian
+254,Prodigy,Dystopian
+255,Champion,Dystopian
+256,Rebel,Dystopian
+257,Delirium,Dystopian
+258,Pandemonium,Dystopian
+259,Requiem,Dystopian
+260,Matched,Dystopian
+261,Crossed,Dystopian
+262,Reached,Dystopian
+263,The Giver,Dystopian
+264,Gathering Blue,Dystopian
+265,Messenger,Dystopian
+266,Son,Dystopian
+267,Uglies,Dystopian
+268,Pretties,Dystopian
+269,Specials,Dystopian
+270,Extras,Dystopian
+271,The Selection,Dystopian
+272,The Elite,Dystopian
+273,The One,Dystopian
+274,The Heir,Dystopian
+275,The Crown,Dystopian
+276,Red Queen,Dystopian
+277,Glass Sword,Dystopian
+278,Kings Cage,Dystopian
+279,War Storm,Dystopian
+280,The Darkest Minds,Dystopian
+281,Never Fade,Dystopian
+282,In the Afterlight,Dystopian
+283,The Hunger Games,Dystopian
+284,Catching Fire,Dystopian
+285,Mockingjay,Dystopian
+286,Divergent,Dystopian
+287,Insurgent,Dystopian
+288,Allegiant,Dystopian
+289,The Maze Runner,Dystopian
+290,The Scorch Trials,Dystopian
+291,The Death Cure,Dystopian
+292,The Kill Order,Dystopian
+293,The Fever Code,Dystopian
+294,Legend,Dystopian
+295,Prodigy,Dystopian
+296,Champion,Dystopian
+297,Rebel,Dystopian
+298,Delirium,Dystopian
+299,Pandemonium,Dystopian
+300,Requiem,Dystopian
+301,Matched,Dystopian
+302,Crossed,Dystopian
+303,Reached,Dystopian
+304,The Giver,Dystopian
+305,Gathering Blue,Dystopian
+306,Messenger,Dystopian
+307,Son,Dystopian
+308,Uglies,Dystopian
+309,Pretties,Dystopian
+310,Specials,Dystopian
+311,Extras,Dystopian
+312,The Selection,Dystopian
+313,The Elite,Dystopian
+314,The One,Dystopian
+315,The Heir,Dystopian
+316,The Crown,Dystopian
+317,Red Queen,Dystopian
+318,Glass Sword,Dystopian
+319,Kings Cage,Dystopian
+320,War Storm,Dystopian
+321,The Darkest Minds,Dystopian
+322,Never Fade,Dystopian
+323,In the Afterlight,Dystopian
+324,The Hunger Games,Dystopian
+325,Catching Fire,Dystopian
+326,Mockingjay,Dystopian
+327,Divergent,Dystopian
+328,Insurgent,Dystopian
+329,Allegiant,Dystopian
+330,The Maze Runner,Dystopian
+331,The Scorch Trials,Dystopian
+332,The Death Cure,Dystopian
+333,The Kill Order,Dystopian
+334,The Fever Code,Dystopian
+335,Legend,Dystopian
+336,Prodigy,Dystopian
+337,Champion,Dystopian
+338,Rebel,Dystopian
+339,Delirium,Dystopian
+340,Pandemonium,Dystopian
+341,Requiem,Dystopian
+342,Matched,Dystopian
+343,Crossed,Dystopian
+344,Reached,Dystopian
+345,The Giver,Dystopian
+346,Gathering Blue,Dystopian
+347,Messenger,Dystopian
+348,Son,Dystopian
+349,Uglies,Dystopian
+350,Pretties,Dystopian
+351,Specials,Dystopian
+352,Extras,Dystopian
+353,The Selection,Dystopian
+354,The Elite,Dystopian
+355,The One,Dystopian
+356,The Heir,Dystopian
+357,The Crown,Dystopian
+358,Red Queen,Dystopian
+359,Glass Sword,Dystopian
+360,Kings Cage,Dystopian
+361,War Storm,Dystopian
+362,The Darkest Minds,Dystopian
+363,Never Fade,Dystopian
+364,In the Afterlight,Dystopian
+365,The Hunger Games,Dystopian
+366,Catching Fire,Dystopian
+367,Mockingjay,Dystopian
+368,Divergent,Dystopian
+369,Insurgent,Dystopian
+370,Allegiant,Dystopian
+371,The Maze Runner,Dystopian
+372,The Scorch Trials,Dystopian
+373,The Death Cure,Dystopian
+374,The Kill Order,Dystopian
+375,The Fever Code,Dystopian
+376,Legend,Dystopian
+377,Prodigy,Dystopian
+378,Champion,Dystopian
+379,Rebel,Dystopian
+380,Delirium,Dystopian
+381,Pandemonium,Dystopian
+382,Requiem,Dystopian
+383,Matched,Dystopian
+384,Crossed,Dystopian
+385,Reached,Dystopian
+386,The Giver,Dystopian
+387,Gathering Blue,Dystopian
+388,Messenger,Dystopian
+389,Son,Dystopian
+390,Uglies,Dystopian
+391,Pretties,Dystopian
+392,Specials,Dystopian
+393,Extras,Dystopian
+394,The Selection,Dystopian
+395,The Elite,Dystopian
+396,The One,Dystopian
+397,The Heir,Dystopian
+398,The Crown,Dystopian
+399,Red Queen,Dystopian
+400,Glass Sword,Dystopian
+401,Kings Cage,Dystopian
+402,War Storm,Dystopian
+403,The Darkest Minds,Dystopian
+404,Never Fade,Dystopian
+405,In the Afterlight,Dystopian
+406,The Hunger Games,Dystopian
+407,Catching Fire,Dystopian
+408,Mockingjay,Dystopian
+409,Divergent,Dystopian
+410,Insurgent,Dystopian
+411,Allegiant,Dystopian
+412,The Maze Runner,Dystopian
+413,The Scorch Trials,Dystopian
+414,The Death Cure,Dystopian
+415,The Kill Order,Dystopian
+416,The Fever Code,Dystopian
+417,Legend,Dystopian
+418,Prodigy,Dystopian
+419,Champion,Dystopian
+420,Rebel,Dystopian
+421,Delirium,Dystopian
+422,Pandemonium,Dystopian
+423,Requiem,Dystopian
+424,Matched,Dystopian
+425,Crossed,Dystopian
+426,Reached,Dystopian
+427,The Giver,Dystopian
+428,Gathering Blue,Dystopian
+429,Messenger,Dystopian
+430,Son,Dystopian
+431,Uglies,Dystopian
+432,Pretties,Dystopian
+433,Specials,Dystopian
+434,Extras,Dystopian
+435,The Selection,Dystopian
+436,The Elite,Dystopian
+437,The One,Dystopian
+438,The Heir,Dystopian
+439,The Crown,Dystopian
+440,Red Queen,Dystopian
+441,Glass Sword,Dystopian
+442,Kings Cage,Dystopian
+443,War Storm,Dystopian
+444,The Darkest Minds,Dystopian
+445,Never Fade,Dystopian
+446,In the Afterlight,Dystopian
+447,The Hunger Games,Dystopian
+448,Catching Fire,Dystopian
+449,Mockingjay,Dystopian
+450,Divergent,Dystopian
+451,Insurgent,Dystopian
+452,Allegiant,Dystopian
+453,The Maze Runner,Dystopian
+454,The Scorch Trials,Dystopian
+455,The Death Cure,Dystopian
+456,The Kill Order,Dystopian
+457,The Fever Code,Dystopian
+458,Legend,Dystopian
+459,Prodigy,Dystopian
+460,Champion,Dystopian
+461,Rebel,Dystopian
+462,Delirium,Dystopian
+463,Pandemonium,Dystopian
+464,Requiem,Dystopian
+465,Matched,Dystopian
+466,Crossed,Dystopian
+467,Reached,Dystopian
+468,The Giver,Dystopian
+469,Gathering Blue,Dystopian
+470,Messenger,Dystopian
+471,Son,Dystopian
+472,Uglies,Dystopian
+473,Pretties,Dystopian
+474,Specials,Dystopian
+475,Extras,Dystopian
+476,The Selection,Dystopian
+477,The Elite,Dystopian
+478,The One,Dystopian
+479,The Heir,Dystopian
+480,The Crown,Dystopian
+481,Red Queen,Dystopian
+482,Glass Sword,Dystopian
+483,Kings Cage,Dystopian
+484,War Storm,Dystopian
+485,The Darkest Minds,Dystopian
+486,Never Fade,Dystopian
+487,In the Afterlight,Dystopian
+488,The Hunger Games,Dystopian
+489,Catching Fire,Dystopian
+490,Mockingjay,Dystopian
+491,Divergent,Dystopian
+492,Insurgent,Dystopian
+493,Allegiant,Dystopian
+494,The Maze Runner,Dystopian
+495,The Scorch Trials,Dystopian
+496,The Death Cure,Dystopian
+497,The Kill Order,Dystopian
+498,The Fever Code,Dystopian
+499,Legend,Dystopian
+500,Prodigy,Dystopian
+501,Champion,Dystopian
+502,Rebel,Dystopian
+503,Delirium,Dystopian
+504,Pandemonium,Dystopian
+505,Requiem,Dystopian
+506,Matched,Dystopian
+507,Crossed,Dystopian
+508,Reached,Dystopian
+509,The Giver,Dystopian
+510,Gathering Blue,Dystopian
+511,Messenger,Dystopian
+512,Son,Dystopian
+513,Uglies,Dystopian
+514,Pretties,Dystopian
+515,Specials,Dystopian
+516,Extras,Dystopian
+517,The Selection,Dystopian
+518,The Elite,Dystopian
+519,The One,Dystopian
+520,The Heir,Dystopian
+521,The Crown,Dystopian
+522,Red Queen,Dystopian
+523,Glass Sword,Dystopian
+524,Kings Cage,Dystopian
+525,War Storm,Dystopian
+526,The Darkest Minds,Dystopian
+527,Never Fade,Dystopian
+528,In the Afterlight,Dystopian
+529,The Hunger Games,Dystopian
+530,Catching Fire,Dystopian
+531,Mockingjay,Dystopian
+532,Divergent,Dystopian
+533,Insurgent,Dystopian
+534,Allegiant,Dystopian
+535,The Maze Runner,Dystopian
+536,The Scorch Trials,Dystopian
+537,The Death Cure,Dystopian
+538,The Kill Order,Dystopian
+539,The Fever Code,Dystopian
+540,Legend,Dystopian
+541,Prodigy,Dystopian
+542,Champion,Dystopian
+543,Rebel,Dystopian
+544,Delirium,Dystopian
+545,Pandemonium,Dystopian
+546,Requiem,Dystopian
+547,Matched,Dystopian
+548,Crossed,Dystopian
+549,Reached,Dystopian
+550,The Giver,Dystopian
+551,Gathering Blue,Dystopian
+552,Messenger,Dystopian
+553,Son,Dystopian
+554,Uglies,Dystopian
+555,Pretties,Dystopian
+556,Specials,Dystopian
+557,Extras,Dystopian
+558,The Selection,Dystopian
+559,The Elite,Dystopian
+560,The One,Dystopian
+561,The Heir,Dystopian
+562,The Crown,Dystopian
+563,Red Queen,Dystopian
+564,Glass Sword,Dystopian
+565,Kings Cage,Dystopian
+566,War Storm,Dystopian
+567,The Darkest Minds,Dystopian
+568,Never Fade,Dystopian
+569,In the Afterlight,Dystopian
+570,The Hunger Games,Dystopian
+571,Catching Fire,Dystopian
+572,Mockingjay,Dystopian
+573,Divergent,Dystopian
+574,Insurgent,Dystopian
+575,Allegiant,Dystopian
+576,The Maze Runner,Dystopian
+577,The Scorch Trials,Dystopian
+578,The Death Cure,Dystopian
+579,The Kill Order,Dystopian
+580,The Fever Code,Dystopian
+581,Legend,Dystopian
+582,Prodigy,Dystopian
+583,Champion,Dystopian
+584,Rebel,Dystopian
+585,Delirium,Dystopian
+586,Pandemonium,Dystopian
+587,Requiem,Dystopian
+588,Matched,Dystopian
+589,Crossed,Dystopian
+590,Reached,Dystopian
+591,The Giver,Dystopian
+592,Gathering Blue,Dystopian
+593,Messenger,Dystopian
+594,Son,Dystopian
+595,Uglies,Dystopian
+596,Pretties,Dystopian
+597,Specials,Dystopian
+598,Extras,Dystopian
+599,The Selection,Dystopian
+600,The Elite,Dystopian
