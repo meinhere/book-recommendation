@@ -28,7 +28,7 @@ const BookInput = ({ label, value, onChange }) => {
         className="form-input"
         type="number"
         min="1"
-        max="10"
+        max="20"
         name="k"
         id="k"
         value={value}
@@ -94,10 +94,6 @@ const BookApp = () => {
 
   const fetchRecommendations = async (inputValue, selectedBook) => {
     try {
-      if (selectedBook === "0") {
-        return;
-      }
-
       const response = await fetch("http://localhost:5000/recommend", {
         method: "POST",
         headers: {
@@ -111,6 +107,7 @@ const BookApp = () => {
 
       const data = await response.json();
       const formattedBooks = data.data.map((book) => [book.bookId, book.title]);
+      console.log(formattedBooks.length);
       setListRecommendations(formattedBooks);
     } catch (error) {
       console.error("Error fetching recommendations:", error);
@@ -129,6 +126,16 @@ const BookApp = () => {
     console.log("Selected Book:", selectedBook);
     console.log("Input Value:", inputValue);
 
+    if (selectedBook === "0") {
+      alert("Pilih buku terlebih dahulu");
+      return;
+    }
+
+    if (inputValue < 1 || inputValue > 20) {
+      alert("Jumlah Maksimal Buku antara 1 hingga 20");
+      return;
+    }
+
     fetchRecommendations(inputValue, selectedBook);
   };
 
@@ -137,7 +144,7 @@ const BookApp = () => {
       <h1>Rekomendasi Buku</h1>
       <BookSelector books={books} onBookChange={handleBookChange} />
       <BookInput
-        label="Jumlah Rekomendasi Buku"
+        label="Jumlah Maksimal Rekomendasi Buku"
         value={inputValue}
         onChange={handleInputChange}
       />

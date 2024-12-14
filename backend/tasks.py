@@ -3,10 +3,10 @@ from celery import Celery
 from sklearn.neighbors import NearestNeighbors
 
 # Konfigurasi Celery dengan Redis yang berjalan di Laptop 1
-app = Celery('recommender_system', broker='redis://localhost:6379/0')
+app = Celery('recommender_system', broker='redis://172.16.14.163:6379/0')
 
 app.conf.update(
-    result_backend='redis://localhost:6379/0',
+    result_backend='redis://172.16.14.163:6379/0',
     task_serializer='json',
     accept_content=['json'],
     broker_connection_retry_on_startup=True,

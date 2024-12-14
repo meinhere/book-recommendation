@@ -29,7 +29,7 @@ def create_matrix(df):
     return X, X_flat, user_mapper, book_mapper, user_inv_mapper, book_inv_mapper
 
 def combine_results(first_half_similarity, second_half_similarity):
-    combined_similarity = first_half_similarity + second_half_similarity
+    combined_similarity = list(set(first_half_similarity + second_half_similarity))
     return combined_similarity
 
 def recommend_books(books, ratings, book_id, k):
