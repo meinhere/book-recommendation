@@ -31,13 +31,13 @@ def recommend():
     if 'k' not in request.json:
         return jsonify({"message": "K parameter is required"}), 400
 
-    books_df = pd.read_csv('dataset/books.csv')
-    ratings_df = pd.read_csv('dataset/ratings.csv')
+    books_df = 'dataset/books.csv'
+    ratings_df = 'dataset/ratings.csv'
 
     book_id = int(request.json['book_id'])
     k = int(request.json['k'])
 
-    print("----------------------> request json", request.json)
+    print("==================> request.body: ", request.json)
 
     book_title, result = recommend_books(books_df, ratings_df, book_id, k)
     return jsonify({"message": "Books recommendation successfully fetched by book title: " + book_title, "data": result}), 200

@@ -57,9 +57,11 @@ const BookList = ({ books }) => {
     <div className="book-list">
       <h2>Hasil Rekomendasi Buku:</h2>
       <ul>
-        {books.map((book) => (
+        {books.map((book, idx) => (
           <li key={book[0]} className="book-item">
-            <span className="book-title">Judul Buku: {book[1]}</span>
+            <span className="book-title">
+              {idx + 1}. {book[1]}
+            </span>
           </li>
         ))}
       </ul>
@@ -73,6 +75,7 @@ const BookApp = () => {
   const [inputValue, setInputValue] = useState(1);
   const [selectedBook, setSelectedBook] = useState("0");
   const [listRecommendations, setListRecommendations] = useState([]);
+  const [executionTime, setExecutionTime] = useState(0);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -93,6 +96,7 @@ const BookApp = () => {
   }, []);
 
   const fetchRecommendations = async (inputValue, selectedBook) => {
+    const startTime = performance.now();
     try {
       const response = await fetch("http://localhost:5000/recommend", {
         method: "POST",
@@ -107,10 +111,12 @@ const BookApp = () => {
 
       const data = await response.json();
       const formattedBooks = data.data.map((book) => [book.bookId, book.title]);
-      console.log(formattedBooks.length);
       setListRecommendations(formattedBooks);
     } catch (error) {
       console.error("Error fetching recommendations:", error);
+    } finally {
+      const endTime = performance.now();
+      setExecutionTime((endTime - startTime).toFixed(2));
     }
   };
 
@@ -123,16 +129,13 @@ const BookApp = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Selected Book:", selectedBook);
-    console.log("Input Value:", inputValue);
-
     if (selectedBook === "0") {
       alert("Pilih buku terlebih dahulu");
       return;
     }
 
-    if (inputValue < 1 || inputValue > 20) {
-      alert("Jumlah Maksimal Buku antara 1 hingga 20");
+    if (inputValue < 1 || inputValue > 100) {
+      alert("Jumlah Maksimal Buku antara 1 hingga 100");
       return;
     }
 
@@ -149,6 +152,16 @@ const BookApp = () => {
         onChange={handleInputChange}
       />
       <ButtonSearch onClick={handleSubmit}>Cari Rekomendasi</ButtonSearch>
+
+      {executionTime > 0 && (
+        <div className="results-info">
+          <p>
+            <strong>Waktu Eksekusi:</strong> {(executionTime / 1000).toFixed(2)}{" "}
+            detik
+          </p>
+        </div>
+      )}
+
       <BookList books={listRecommendations} />
     </div>
   );

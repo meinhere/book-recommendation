@@ -1,55 +1,110 @@
 import pandas as pd
 import numpy as np
-import math
 from tasks import app
+from sklearn.neighbors import NearestNeighbors
 from scipy.sparse import csr_matrix
 
-def create_matrix(df):
-    N = len(df['userId'].unique())
-    M = len(df['bookId'].unique())
-    
-    # Map Ids to indices
-    user_mapper = dict(zip(np.unique(df["userId"]), list(range(N))))
-    book_mapper = dict(zip(np.unique(df["bookId"]), list(range(M))))
-    
-    # Map indices to IDs
-    user_inv_mapper = dict(zip(list(range(N)), np.unique(df["userId"])))
-    book_inv_mapper = dict(zip(list(range(M)), np.unique(df["bookId"])))
-    
-    user_index = [user_mapper[i] for i in df['userId']]
-    book_index = [book_mapper[i] for i in df['bookId']]
+def find_similarity(book_mapper, book_inv_mapper, book_id, X, k, metric='cosine', show_distance=False):
+    neighbour_ids = []
 
-    X = csr_matrix((df["rating"], (book_index, user_index)), shape=(M, N))
-
-    X_dense = X.toarray()  # Convert sparse matrix to a dense numpy array
-    X_flat = [float(x) for x in X_dense.flatten()]
-    book_mapper = {int(key): int(value) if isinstance(value, np.int64) else value for key, value in book_mapper.items()}
-    book_inv_mapper = {int(key): int(value) if isinstance(value, np.int64) else value for key, value in book_inv_mapper.items()}
+    # Check if book_id exists in book_mapper
+    if book_id not in book_mapper:
+        return neighbour_ids
     
-    return X, X_flat, user_mapper, book_mapper, user_inv_mapper, book_inv_mapper
+    book_ind = book_mapper[book_id]
+    book_vec = X[book_ind]
+    k+=1
+    kNN = NearestNeighbors(n_neighbors=k, algorithm="brute", metric=metric)
+    kNN.fit(X)
+    book_vec = book_vec.reshape(1,-1)
+    neighbour = kNN.kneighbors(book_vec, return_distance=show_distance)
+    for i in range(0,k):
+        n = neighbour.item(i)
+        neighbour_ids.append(book_inv_mapper[n])
+    neighbour_ids.pop(0)
+    return neighbour_ids
 
-def combine_results(first_half_similarity, second_half_similarity):
-    combined_similarity = list(set(first_half_similarity + second_half_similarity))
-    return combined_similarity
 
-def recommend_books(books, ratings, book_id, k):
+def combine_matrices(results, original_books_ids):
+    """Menggabungkan hasil dari task-task Celery dan mapper."""
+    all_data = []
+    all_rows = []
+    all_cols = []
+
+    master_books_mapper = {books_id: index for index, books_id in enumerate(original_books_ids)}
+    master_user_offset = 0
+    master_user_mapper = {}
+    master_books_mapper_final = {}
+    master_user_inv_mapper = {}
+    master_books_inv_mapper = {}
+
+    for result in results:
+        X_serializable, user_mapper_subset, books_mapper_subset, user_inv_mapper_subset, books_inv_mapper_subset = result
+
+        # Rekonstruksi array NumPy dari list
+        data = X_serializable.data
+        row = X_serializable.row
+        col = X_serializable.col
+
+        for i in range(len(data)):
+            master_books_index = master_books_mapper[int(list(books_mapper_subset.keys())[row[i]])]
+            all_data.append(data[i])
+            all_rows.append(master_books_index)
+            all_cols.append(int(col[i]) + master_user_offset)
+
+        # Gabungkan mapper
+        for user_id, local_user_index in user_mapper_subset.items():
+            master_user_mapper[int(user_id)] = int(local_user_index) + master_user_offset
+        for books_id, local_books_index in books_mapper_subset.items():
+            # Pastikan books id ada di master mapper, jika tidak ada, tambahkan.
+            if int(books_id) not in master_books_mapper_final:
+                master_books_mapper_final[int(books_id)] = master_books_mapper[int(books_id)]
+
+        for local_user_index, user_id in user_inv_mapper_subset.items():
+            master_user_inv_mapper[int(local_user_index) + master_user_offset] = int(user_id)
+        for local_books_index, books_id in books_inv_mapper_subset.items():
+            if master_books_mapper[int(books_id)] not in master_books_inv_mapper:
+                master_books_inv_mapper[master_books_mapper[int(books_id)]] = int(books_id)
+
+        master_user_offset += len(user_mapper_subset)
+    
+    if not all_data:
+        return None, {}, {}, {}, {}
+
+    M = len(original_books_ids)
+    N = master_user_offset
+
+    combined_matrix = csr_matrix((all_data, (all_rows, all_cols)), shape=(M, N))
+    return combined_matrix, master_user_mapper, master_books_mapper_final, master_user_inv_mapper, master_books_inv_mapper
+
+def recommend_books(books_file, ratings_file, book_id, k):
+    books = pd.read_csv(books_file)
+    ratings = pd.read_csv(ratings_file)
+
     if book_id not in ratings['bookId'].values:
         return "Book ID not found"
-
+    
     book_titles = dict(zip(books['bookId'], books['title']))
     book_title = book_titles[book_id]
 
-    mid_index = len(ratings) // 2
-    first_half = ratings.iloc[:mid_index]
-    second_half = ratings.iloc[mid_index:]
+    all_user_ids = ratings['userId'].unique()
+    num_users = len(all_user_ids)
+    midpoint = num_users // 2
 
-    X, X_flat, user_mapper, book_mapper, user_inv_mapper, book_inv_mapper = create_matrix(first_half)
-    first_half_result = app.send_task('tasks.process_first_half', args=[book_mapper, book_inv_mapper, book_id, X_flat, math.floor(k/2), X.shape]).get()
+    user_ids_1 = all_user_ids[:midpoint]
+    user_ids_2 = all_user_ids[midpoint:]
+    original_books_ids = ratings['bookId'].unique()
 
-    X, X_flat, user_mapper, book_mapper, user_inv_mapper, book_inv_mapper = create_matrix(second_half)
-    second_half_result = app.send_task('tasks.process_second_half', args=[book_mapper, book_inv_mapper, book_id, X_flat, math.ceil(k/2), X.shape]).get()
+    # Memulai task secara paralel
+    task1 = app.send_task("tasks.create_matrix_first_task", args=[ratings_file, user_ids_1])
+    task2 = app.send_task("tasks.create_matrix_second_task", args=[ratings_file, user_ids_2])
 
-    all_results = combine_results(first_half_result, second_half_result)
+    results = [task1.get(), task2.get()]
+
+    X, user_mapper, book_mapper, user_inv_mapper, book_inv_mapper = combine_matrices(results, original_books_ids)
+
+    all_results = find_similarity(book_mapper, book_inv_mapper, book_id, X, k)
+    
     recommend_books = [{"bookId": i, "title": book_titles[i]} for i in all_results]
 
     return book_title, recommend_books
